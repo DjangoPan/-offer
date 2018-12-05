@@ -1,0 +1,19 @@
+ 时间限制：1秒 
+ 空间限制：32768K 
+ 热度指数：315926 
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+
+
+1版：
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        a,b=1,1
+        for i in range(number):
+            a,b=b,a+b
+        return a
+        
+注：实际上就是斐波那契问题，不过是有套上了一层外壳，设跳上n阶台阶共有f(n)种跳法，
+因为每次只能跳2个或1个台阶，所以由题知：f(n)=f(n-1)+f(n-2)，显然，feibonacci 数列问题。
