@@ -1,0 +1,43 @@
+
+ 时间限制：1秒 
+ 空间限制：32768K 
+ 热度指数：299657 
+ 
+ 
+输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+
+ 
+ 
+1版：
+# -*- coding:utf-8 -*-
+class Solution:
+    def NumberOf1(self, n):
+        # write code here
+        if n<0:
+            n=2**32+n               #判断负数，并把负数变成正数。
+        n=bin(n)
+        count=0
+        for i in range(2,len(n)):
+            if n[i]=='1':
+                count+=1
+        return count
+
+
+可以说是最烂的，最原始的版本了，完全是最初的，自己的想法。
+注意：
+1.python中的整数存储为32位。
+2.计算机中数的存储都是以补码的方式存储。
+3.负数的补码+负数的原码=存储位长表示的最大值。
+4.bin()函数，负数不识别，返回字符串，自带0b前缀。
+
+
+2版(网友版本)：
+# -*- coding:utf-8 -*-
+class Solution:
+    def NumberOf1(self, n):
+        # write code here
+        return sum([(n>>i & 1) for i in range(32)])
+
+注意：
+1.可以通过按位相与的方式来判断1的个数。
+2.位移计算除了负数右移左边补1之外，其余均是补0。
