@@ -1,0 +1,35 @@
+ 时间限制：1秒 
+ 空间限制：32768K 
+ 热度指数：863047 
+ 
+ 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+ 请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+ 
+ 
+ 分析：二维数组类似于：[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]
+
+ 
+ 
+1版：
+# -*- coding:utf-8 -*-
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        for i in range(len(array)):
+            if array[i]==[]:
+                return False
+            for j in range(len(array[i])):
+                if array[i][j]==target:
+                    return True
+        return False
+        
+
+纯手打。自己的版本。
+注意：
+1.会有16,[[]]的情况，所以说，需要加上一个array[i]==[]的判断。
+2.不需要加上i与j大小的判断。
+3.思考是否可以优化算法，因为没有用到排序。
+
+
+2版：
