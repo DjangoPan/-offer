@@ -1,0 +1,40 @@
+ 时间限制：1秒 
+ 空间限制：32768K 
+ 热度指数：309708 
+ 
+ 
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+
+
+分析：
+总体上考察指数的定义。
+
+
+1版：
+# -*- coding:utf-8 -*-
+class Solution:
+    def Power(self, base, exponent):
+        # write code here
+        return pow(base,exponent)
+        
+注意：此法不可取！
+
+
+
+2版：
+# -*- coding:utf-8 -*-
+class Solution:
+    def Power(self, base, exponent):
+        # write code here
+        if base==0:
+            return 0
+        if exponent==0:
+            return 1
+        result=1
+        for i in range(abs(exponent)):
+            result*=base
+        if exponent<0:
+            return 1/result
+        return result
+        
+注意：这题没什么好说的，唯一注意指数需要加上绝对值。
